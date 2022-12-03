@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+
+{% block title %} Agendamento de Projetores {% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 agend-div">
+    <h1>Agendamento de Projetores</h1>
+</div>
+{% for objects in Dispositivo %}
+    <h1>{{Dispositivo.nome}}</h1>
+{% endfor %}
+{% endblock %}

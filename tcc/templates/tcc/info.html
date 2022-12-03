@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% block title %} Informações dos Projetores {% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 info-div">
+    <h1>Informações dos Projetores</h1>
+    <a id="add-link" href="newproj/">
+        <div class="col-2 add-div">
+            <i class="fas fa-plus"></i> Adicionar Projetor
+        </div>
+    </a>
+    <div class="col-9 search-div">
+        <imput class="form-control" type="text" id="search" name="search" placeholder="Digite o nome do projetor para buscar">
+        <i class="fas fa-search"></i>
+    </div>
+    <ul class="proj-list">
+        {% for disp in disp %}
+        <li class="proj-item">
+            <span><a href="../disp/{{disp.id}}">{{disp}}</a></span>
+            <span><i class="fas fa-trash"></i></span>
+            <span><i class="fas fa-edit"></i></span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

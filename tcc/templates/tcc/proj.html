@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+
+{% block title %} Informações dos Projetores {% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 info-div">
+    <h1>{{proj.nome}}</h1>
+    <p>{{proj.descricao}}</p>
+    <p>Status: {{proj.funcionamento}}</p>
+</div>
+{% endblock %}

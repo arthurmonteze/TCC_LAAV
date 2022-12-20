@@ -43,6 +43,7 @@
 .fas.fa-search {
     top: 12px;
     right: 26px;
+    cursor: pointer;
 }
 
 .search-div {
@@ -52,7 +53,25 @@
     display: inline-block;
 }
 
-/* Lista de tarefas */
+/* Lista de professor */
+
+.info-prof {
+    padding: 0;
+}
+
+.prof-list {
+    padding-left: 0;
+}
+
+.prof-item {
+    list-style: nome;
+    font-size: 20px;
+    height: 50px;
+    padding-top: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+
+/* Lista de projetor */
 
 .info-div {
     padding: 0;
@@ -87,8 +106,40 @@
 
 /* Login */
 
+.login-button {
+    text-align: center;
+    background-color: #3476e2;
+}
+
 .auth-card {
     margin-bottom: 30px;
+}
+
+/* Messages */
+
+ul.messages{
+    padding: 0;
+}
+
+ul.messages li {
+    list-style: nome;
+}
+
+/* Paginação */
+
+.pagination {
+    margin-bottom: 20px;
+}
+
+.step-links {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-links .current {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /* Rodapé

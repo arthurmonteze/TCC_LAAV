@@ -1,27 +1,52 @@
 {% extends 'home.html' %}
 
-{% block title %} Informações dos Projetores {% endblock %}
+{% block title %} Projetores {% endblock %}
 
 {% block content %}
 <div class="offset-1 col-10 info-div">
     <h1>Informações dos Projetores</h1>
-    <a id="add-link" href="newproj/">
+    <a id="add-link" href="../newdisp/">
         <div class="col-2 add-div">
             <i class="fas fa-plus"></i> Adicionar Projetor
         </div>
     </a>
-    <div class="col-9 search-div">
-        <imput class="form-control" type="text" id="search" name="search" placeholder="Digite o nome do projetor para buscar">
-        <i class="fas fa-search"></i>
-    </div>
+    <!--<div class="col-9 search-div">
+        <form method="GET" id="search-form">
+            <imput class="form-control" type="text" id="search" name="search" placeholder="Digite o nome do projetor para buscar">
+            <i class="fas fa-search" id="search-btn"></i>  
+        </form>
+    </div>-->
+    <!--Menssagem de Deletar-->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{message}}</p>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <!--Lista de Projetor-->
     <ul class="proj-list">
         {% for disp in disp %}
         <li class="proj-item">
             <span><a href="../disp/{{disp.id}}">{{disp}}</a></span>
-            <span><i class="fas fa-trash"></i></span>
-            <span><i class="fas fa-edit"></i></span>
+            <a href="../deletedisp/{{disp.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
+            <a href="../editdisp/{{disp.id}}"><span><i class="fas fa-edit"></i></span></a>
         </li>
         {% endfor %}
     </ul>
+    <!--Paginação-->
+    <div class="pagination">
+        <span class="step-links">
+            {% if disp.has_previous %}
+                <a href="?page={{disp.previous_page_number}}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+            <span class="current">
+                {{ disp.number }} de {{ disp.paginator.num_pages }}
+            </span>
+            {% if disp.has_next %}
+                <a href="?page={{disp.next_page_number}}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
 </div>
 {% endblock %}
